@@ -79,3 +79,15 @@ Las conclusiones que podemos sacar son:
 - Entre previous y emp.var.rate (-0,42)- correlación negativa media. Cuando la tasa de empleo es menor, más contactos previos se registran.
 - Para age- con cualquier otra - el índice es cercano a 0 , esto quiere decir que la edad no tiene ninguna correlación el resto de variables.
 Las conclusiones generales de la tabla pueden resumirse en que las variables e índices económicos (emp.var.rate, cos.price.idx y euribor3m) están muy relacionadas entre sí, ya que son indicadores financierons y económicos interdependientes. Por otro lado la variable previous está relacionada negativamente con estas 3 de antes, quiere decir que cuando la economía iba peor, se contactó más veces con clientes. Por su parte la edad no guarda ninguna relaciónn con las variables.
+
+
+
+Ahora vamos a analizar el archivo customers.
+Lo primero que hacemos es representar cada variable en un histograma para ver qué información nos puede dar:
+- La variable income vemos que es bastante uniforme.
+- Las variables de niño y adolescente en casa tienen los picos definidos en 0,1,2 , siendo los 3 del mismo tamaño, no nos aporta información.
+- La distribución del número de visitas por mes también es bastante uniforme.
+
+Para analizar la relacion de los clientes con la fecha tenemos que primero separar el valor de la fecha de las listas de datos.
+
+
