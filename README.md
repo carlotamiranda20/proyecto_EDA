@@ -38,6 +38,23 @@ Lo siguiente que hacemos es mirar si hay filas duplicadas que no nos aporten inf
 
 4- Con este estudio y transformación de los datos hecho, pasamos a la parte de visualización y análisis. 
 
+Primero representamos un histograma de algunas variables numéricas para visualizar cómo se distribuyen los valores de cada variable. Hacemos uns lista num_cols donde se recogen los datos de estas columnas, y luego con un bucle for recorremos las variables para representar los histogramas uno a uno. Con sns.histpot() creamos el histograma, haciendo kde=Tru cremos la curva de densidad y creamos un ancho de 30 bins.
+Las conclusiones que podemos sacar son:
+-La distribución de edad es tiene un pico entre los 30 y 40, y prácticamente disminuye a partri de los 60 y antes de los 20. La mayoría de clientes se encuentran en edad adulta activa.
+-La mayoría de la duración de las llamadas son alrededor de 30-60segundos.
+-La tasa de variación de empleo suele ser mayor de 1.
+-La distribución de cons.price.idx suele tener valor 94. 
+
+Para las varibles categóricas, lo que vamos a hacer es representar un histograma para mostrar las diferentes categórias que tiene cada una. En vez de un histograma creamos un gráfico de barras donde se muestra cuántas veces aparece cada categoría en cada variable. Con el argumento order=df_bank[col].value_counts().index organizmos las barrras según su frecuencia de mayor a menor. Con plt.xticks(rotation=45) rotamos las etiquetas de los ejes para que nose solapen.
+Podemos extraer que:
+-La mayor parte de los trabajos de los clientes son administrativo, siendo muy pocos los estudiantes.
+-La mayoría de los clientes están casados.
+-La mayoría de los clientes han estudiado una carrera universitaria.
+-El contacto ha sido a través de telefóno móvil casi en el doble de clientes.
+-Acerca de los resultados de campañas anteriores (poutcome) no se tiene apenas información (la mayoría es nonexistent). De los datos que se tienen, más fracaso que éxito 
+-Los clientes que no se suscriben a productos son 7 veces más que los que sí lo hacen.
+
+
 
 Vamos a hacer una matriz de correlación entre las variables. Esto nos da información sobre cómo se relacionan las distintas variables, es decir si sus valores cambian juntos o no. 
 Para ello hacemos un mapa 2D donde obsevamos las variables y su índice de correlación, que va de -1 a 1. Usamos el código de colores para una mejor visualización (cuánto más rojo  índice más positivo y azul negativo). 
