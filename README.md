@@ -36,12 +36,15 @@ Depués de hacer esta limpieza y las imputaciones, vemos que en las columnas job
 
 Lo siguiente que hacemos es mirar si hay filas duplicadas que no nos aporten información. Usamos: num_duplicados = df_bank.duplicated().sum(). Vemos que no hay filas duplicadas.
 
-Con este estudio y transformación de los datos hecho, pasamos a la parte de visualización y análisis. 
+4- Con este estudio y transformación de los datos hecho, pasamos a la parte de visualización y análisis. 
 
 
 Vamos a hacer una matriz de correlación entre las variables. Esto nos da información sobre cómo se relacionan las distintas variables, es decir si sus valores cambian juntos o no. 
-Para ello hacemos un mapa 2D donde obsevamos las variables y su índice de correlación, que va de -1 a 1. Usamos el código de colores para una mejor visualización (cuánto más rojo  índice más positivo y azul negativo). La diagonal son 1 ya que cada variable consigo misma tiene una correlación de 1. 
-Observamos que las variables que tienen una correlación positiva mayor son emp.var.rate, cons.price.idx y euribor3m, es decir que cuando sube una sube la otra.
+Para ello hacemos un mapa 2D donde obsevamos las variables y su índice de correlación, que va de -1 a 1. Usamos el código de colores para una mejor visualización (cuánto más rojo  índice más positivo y azul negativo). 
+
+Para ello creamos un mapa de calor (heatmap) con seaborn, sns.heatmap(). Usamos la lista num_cols[] con las columnas numéricas uq ehemos definido anteriormente. Con annot=True mostramos los valores de correlación dentro de la matriz y con cmap='coolwarm' usamos la paleta de colores que va del azul al rojo.
+La diagonal son 1 ya que cada variable consigo misma tiene una correlación de 1. 
+El índice cercaco a 1 significa que cuando sube de valor una varible sube la otra, y por el contrario -1 significa que cuanto más sube uno, disminuye el otro.
 Las conclusiones que podemos sacar son:
 - Entre emp.var.rate y euribor3m: alta correlación positiva (0,82).Cuando sube la tasa de emplo, también sube el euribor3m (la tasa de interés).
 - Entre emp.var.rate y cons.price.idx: alta correlación positiva (0,77). Mayor empleo implica precios más altos.
