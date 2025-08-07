@@ -1,4 +1,9 @@
-# proyecto_EDA
+# Proyecto_EDA
+En el proyecto está estructurado de la siguiente forma:
+1-Tratamiento de los datos de los archivos: carga de los archivos, visualización, limpieza y transformación de los datos.
+2-Análisis de los datos: representaciones gráficas de los archivos donde se comparas y visualizan las diferentes variables y relaciones entre ellas para obtener un análisis  sobre ellos de forma cualitativa.
+
+
 
 1-Carga de archivos.
 En primera lugar cargamos los archivos con los que tenemos que trabajar: 
@@ -93,16 +98,22 @@ Para analizar la relacion de los clientes con la fecha tenemos que primero separ
 Igual que con la hoja anterior, hacemos una matriz de correlación, pero en este caso no reaulta tan interesante porque vemos que las variables apenas están relacionadas entre ellas.
 
 
-
 Lo siguiente que vamos a hacer es unir ambos archivos para obtener información a partir de ambos. 
 
 Unimos con la función merge a partir de la columna (variable) que tienen en común que se llama ID en el archivo customers y id_ en el archivo bank_details. Al hacer el how='inner' conservamos solo los clientes que estén en ambos archivos.
+Comprobamos la forma que tienen y mostramos las 5 primeras filas de la nueva tabla.
+
+Vamos a extraer algunos gráficos para analizar qué información podemos obtener.
+
+En primer lugar vamos a ver si los ingresos de los clientes tienen relación con que se hayan suscrito o no. Para ello hacemos un boxplot, que lo que hace es representar los valores alrededor de la mediana. Con las barras de error representa los valores atípicos que puede haber. Vemos que el rango es bastante parecido, por tanto esta relación no nos aporta mucha información. 
+
+También comparamos la distribución de visitas web con la variable y. De nuevo observamos que para ambos resultados (no/yes) es bastante parecido el número de vistas a la página por mes.
+
+Lo siguiente que vamos a comparar es el número de hijos que hay en casa. Para ello vamos a crear una nueva variable que sea TotalKids, una suma de los Kidhome y Teenhome. Representamos en un gráfico de valores. De nuevo no vemos una relación de que haya más contratos o no dependiendo del número de hijos. 
+
+Finalmente hacemos una matriz de correlación con todas las variables juntas. Vemos que excepto las variables económicas y previous, no hay apenas correlación entre las distintas variables.
 
 
 
 
-
-
-
-
-
+Como conclusión general del trabajo obtenemos que no hay ninguna variable (edad, ingresos, número de veces que se contacta...) que tenga una clara relación con los clientes que han contratado los servicios, que sería la variable más interesante a la hora de sacar resultados acerca de este estudio sobre los clientes. Aunque sí se han visto otras relaciones, como las relativas a las financieras (euribor3m, emp.var.rate y consprice.idx, entre otras) de variables que sí influyen entre ellas.
