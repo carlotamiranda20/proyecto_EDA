@@ -25,11 +25,28 @@ En primer lugar vamos a arreglar los tipos de datos de las columnas para poder t
 - Las variables categóricas (job, marital, education, contact, poutcome, y) están en objeto, correcto, pero las convertimos a category para optimizar memoria y análisis.
 
 Lo siguiente que hacemos es ver los valores nulos que hay en cada columna, con df_bank.isnull().sum(). La función isnull() valora si hay un valor nulo o no en cada fila y con sum() sumamos el total de cada columna con las filas. En el archivo de customers no encontramos ningún valor nulo, mientras que en bank sí. Notar que antes mostramos el número de filas que tenía cada variable (o sea número de filas de cada columna) y no todas tenian 43000 que sería el total. En este caso debe coincidir el número de los valores que nos salen nulos con la diferencia del total con los valores no nulos que obtuvimos al aplicar la función info().
-Apreciamos que en el archivo bank-additional sale un número considerable de valores nulos. Vamos a omitir el hecho de que salgan nulos los valores de date, ya que es porque no entiende los meses en español y al transformarlo a tipo datetime detecta los valores como nulos.
+
+En el archivo bank-additional sale un número considerable de valores nulos. Vamos a omitir el hecho de que salgan nulos los valores de date, ya que es porque no entiende los meses en español y al transformarlo a tipo datetime detecta los valores como nulos.
+
 Vamos a calcular el porcentaje de filas nulas que hay en cada columna resepecto al total, dividiendo el número de valores nulos entre el total de filas. 
+
 Vamos a rellenar los valores nulos de la siguiente forma:  los valores numéricos rellenamos con la mediana (age, cons.price,idx, y euribor3m) , los valores binarios con la moda, es decir el más frecuente (education, loan, housing). La columna default nos indica el historial de impagos, y vemos que tiene un alto porcentaje de valores nulos (20.89% , es decir no hay información de 1 de cada 5 registros). También observamos que la mayoría de los valores es 0 (que no ha habido impagos) y no ofrece mucha variabilidad. Así, hay un alto porcentaje de valores nulos y poca variablidad, por tanto es una columna que no nos aporta mucha información y podemos considerar eliminar la columna ya que no nos aporta realmente información al análisis. 
+
 Depués de hacer esta limpieza y las imputaciones, vemos que en las columnas job, marital y date sigue habiendo valores nulos, pero suponen un porcentaje muy pequeño que no supone un problema en el análisis.
 
 Lo siguiente que hacemos es mirar si hay filas duplicadas que no nos aporten información. Usamos: num_duplicados = df_bank.duplicated().sum(). Vemos que no hay filas duplicadas.
 
 Con este estudio y transformación de los datos hecho, pasamos a la parte de visualización y análisis. 
+
+
+Vamos a hacer una matriz de correlación entre las variables. Esto nos da información sobre cómo se relacionan las distintas variables, es decir si sus valores cambian juntos o no. 
+Para ello hacemos un mapa 2D donde obsevamos las variables y su índice de correlación, que va de -1 a 1. Usamos el código de colores para una mejor visualización (cuánto más rojo  índice más positivo y azul negativo). La diagonal son 1 ya que cada variable consigo misma tiene una correlación de 1. 
+Observamos que las variables que tienen una correlación positiva mayor son emp.var.rate, cons.price.idx y euribor3m, es decir que cuando sube una sube la otra.
+Las conclusiones que podemos sacar son:
+- Entre emp.var.rate y euribor3m: alta correlación positiva (0,82).Cuando sube la tasa de emplo, también sube el euribor3m (la tasa de interés).
+- Entre emp.var.rate y cons.price.idx: alta correlación positiva (0,77). Mayor empleo implica precios más altos.
+- Cons.price.ixd y euribor3m (0,57) correlación media-alta.
+- Entre campaign y emp.var.rate (0,15)-ligera correlación positiva. Cuantas más campañas, se encuentran tasas de empleo algo mayores.
+- Entre previous y emp.var.rate (-0,42)- correlación negativa media. Cuando la tasa de empleo es menor, más contactos previos se registran.
+- Para age- con cualquier otra - el índice es cercano a 0 , esto quiere decir que la edad no tiene ninguna correlación el resto de variables.
+Las conclusiones generales de la tabla pueden resumirse en que las variables e índices económicos (emp.var.rate, cos.price.idx y euribor3m) están muy relacionadas entre sí, ya que son indicadores financierons y económicos interdependientes. Por otro lado la variable previous está relacionada negativamente con estas 3 de antes, quiere decir que cuando la economía iba peor, se contactó más veces con clientes. Por su parte la edad no guarda ninguna relaciónn con las variables.
