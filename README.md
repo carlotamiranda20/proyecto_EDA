@@ -40,19 +40,27 @@ Lo siguiente que hacemos es mirar si hay filas duplicadas que no nos aporten inf
 
 Primero representamos un histograma de algunas variables numéricas para visualizar cómo se distribuyen los valores de cada variable. Hacemos uns lista num_cols donde se recogen los datos de estas columnas, y luego con un bucle for recorremos las variables para representar los histogramas uno a uno. Con sns.histpot() creamos el histograma, haciendo kde=Tru cremos la curva de densidad y creamos un ancho de 30 bins.
 Las conclusiones que podemos sacar son:
--La distribución de edad es tiene un pico entre los 30 y 40, y prácticamente disminuye a partri de los 60 y antes de los 20. La mayoría de clientes se encuentran en edad adulta activa.
--La mayoría de la duración de las llamadas son alrededor de 30-60segundos.
--La tasa de variación de empleo suele ser mayor de 1.
--La distribución de cons.price.idx suele tener valor 94. 
+- La distribución de edad es tiene un pico entre los 30 y 40, y prácticamente disminuye a partri de los 60 y antes de los 20. La mayoría de clientes se encuentran en edad adulta activa.
+- La mayoría de la duración de las llamadas son alrededor de 30-60segundos.
+- La tasa de variación de empleo suele ser mayor de 1.
+- La distribución de cons.price.idx suele tener valor 94. 
 
 Para las varibles categóricas, lo que vamos a hacer es representar un histograma para mostrar las diferentes categórias que tiene cada una. En vez de un histograma creamos un gráfico de barras donde se muestra cuántas veces aparece cada categoría en cada variable. Con el argumento order=df_bank[col].value_counts().index organizmos las barrras según su frecuencia de mayor a menor. Con plt.xticks(rotation=45) rotamos las etiquetas de los ejes para que nose solapen.
 Podemos extraer que:
--La mayor parte de los trabajos de los clientes son administrativo, siendo muy pocos los estudiantes.
--La mayoría de los clientes están casados.
--La mayoría de los clientes han estudiado una carrera universitaria.
--El contacto ha sido a través de telefóno móvil casi en el doble de clientes.
--Acerca de los resultados de campañas anteriores (poutcome) no se tiene apenas información (la mayoría es nonexistent). De los datos que se tienen, más fracaso que éxito 
--Los clientes que no se suscriben a productos son 7 veces más que los que sí lo hacen.
+- La mayor parte de los trabajos de los clientes son administrativo, siendo muy pocos los estudiantes.
+- La mayoría de los clientes están casados.
+- La mayoría de los clientes han estudiado una carrera universitaria.
+- El contacto ha sido a través de telefóno móvil casi en el doble de clientes.
+- Acerca de los resultados de campañas anteriores (poutcome) no se tiene apenas información (la mayoría es nonexistent). De los datos que se tienen, más fracaso que éxito 
+- Los clientes que no se suscriben a productos son 7 veces más que los que sí lo hacen.
+
+Una variable interesante de estudiar es cómo se comportar la variable y, que indica cuántos clientes se han suscrito y cuántos no. Para ello vamos a representar dicha variable con las categorías job, marital y education para analizar si algún grupo en concreto tiene mayor proporción de sí que de no. 
+
+De nuevo creamos un gráfico por cada variable de tipo gráfico de barra, pero esta vez con dos variables  a representar , una la x que son las categorías que añadimos a la lista col y otra la 'y' que es la distribución de yes o no. De esta forma por cada categoría tenemos dos barras que indican los yes/no. También los ordenamos por frecuencia igual que en los gráficos anteriores.
+Las conclusiones que obtenemos:
+- Los estudiantes con los que ha contactado se han suscrito un porcentaje mayor que el resto de las categorías.
+- En cuanto a estado civil, los solteros tienen una respuesta positiva mayor que el resto.
+- Los clientes que tienen un curso profesional tienen una mayor respuesta positiva que el resto (aunque no notablemente mayor).
 
 
 
