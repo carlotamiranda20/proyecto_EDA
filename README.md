@@ -88,6 +88,21 @@ Lo primero que hacemos es representar cada variable en un histograma para ver qu
 - Las variables de niño y adolescente en casa tienen los picos definidos en 0,1,2 , siendo los 3 del mismo tamaño, no nos aporta información.
 - La distribución del número de visitas por mes también es bastante uniforme.
 
-Para analizar la relacion de los clientes con la fecha tenemos que primero separar el valor de la fecha de las listas de datos.
+Para analizar la relacion de los clientes con la fecha tenemos que primero separar el valor de la fecha de las listas de datos. Para eso primero separamos el año con dt.year,  y reprsentamos el número de clientes que se unieron en los diferentes años. Vemos que en el 2012 hubo un mayor número de clientes que se dieron de alta.
+
+Igual que con la hoja anterior, hacemos una matriz de correlación, pero en este caso no reaulta tan interesante porque vemos que las variables apenas están relacionadas entre ellas.
+
+
+
+Lo siguiente que vamos a hacer es unir ambos archivos para obtener información a partir de ambos. 
+
+Unimos con la función merge a partir de la columna (variable) que tienen en común que se llama ID en el archivo customers y id_ en el archivo bank_details. Al hacer el how='inner' conservamos solo los clientes que estén en ambos archivos.
+
+
+
+
+
+
+
 
 
