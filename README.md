@@ -37,6 +37,7 @@ Depués de hacer esta limpieza y las imputaciones, vemos que en las columnas job
 Lo siguiente que hacemos es mirar si hay filas duplicadas que no nos aporten información. Usamos: num_duplicados = df_bank.duplicated().sum(). Vemos que no hay filas duplicadas.
 
 4- Con este estudio y transformación de los datos hecho, pasamos a la parte de visualización y análisis. 
+Comenzamos con el archivo de band_additional.
 
 Primero representamos un histograma de algunas variables numéricas para visualizar cómo se distribuyen los valores de cada variable. Hacemos uns lista num_cols donde se recogen los datos de estas columnas, y luego con un bucle for recorremos las variables para representar los histogramas uno a uno. Con sns.histpot() creamos el histograma, haciendo kde=Tru cremos la curva de densidad y creamos un ancho de 30 bins.
 Las conclusiones que podemos sacar son:
