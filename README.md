@@ -1,6 +1,8 @@
 # Proyecto_EDA
 En el proyecto está estructurado de la siguiente forma:
+
 1-Tratamiento de los datos de los archivos: carga de los archivos, visualización, limpieza y transformación de los datos.
+
 2-Análisis de los datos: representaciones gráficas de los archivos donde se comparas y visualizan las diferentes variables y relaciones entre ellas para obtener un análisis  sobre ellos de forma cualitativa.
 
 
